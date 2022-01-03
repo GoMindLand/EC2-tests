@@ -1,17 +1,45 @@
 import { Article, calculatePrice } from "."
 
 describe("Calculate price", () => {
-  test("should calculate the price when we have no article", () => {
-    // Arrange
-    let articles: Array<Article> = []
+  test.each([
+    {
+      articles: [],
+      expectedTotalPriceHT: "0.00€",
+      expectedTotalPriceTTC: "0.00€",
+    },
+    {
+      articles: [{ price: "1.21€", tva: "0%" }],
+      expectedTotalPriceHT: "1.21€",
+      expectedTotalPriceTTC: "1.21€",
+    },
+    {
+      articles: [
+        { price: "1.21€", tva: "0%" },
+        { price: "1.21€", tva: "0%" },
+      ],
+      expectedTotalPriceHT: "2.42€",
+      expectedTotalPriceTTC: "2.42€",
+    },
+    {
+      articles: [
+        { price: "1.21€", tva: "5%" },
+        { price: "1.21€", tva: "5%" },
+        { price: "1.21€", tva: "5%" },
+      ],
+      expectedTotalPriceHT: "3.63€",
+      expectedTotalPriceTTC: "3.81€",
+    },
+  ])(
+    "should calculate prices articles with $expectedTotalPriceHT HT and $expectedTotalPriceTTC TTC",
+    async (cases) => {
+      const { articles, expectedTotalPriceHT, expectedTotalPriceTTC } = cases
 
-    // act
-    const result = calculatePrice(articles)
+      const result = calculatePrice(articles)
 
-    // Assert
-    expect(result).toStrictEqual({
-      totalPriceHT: "0.00€",
-      totalPriceTTC: "0.00€",
-    })
-  })
+      expect(result).toStrictEqual({
+        totalPriceHT: expectedTotalPriceHT,
+        totalPriceTTC: expectedTotalPriceTTC,
+      })
+    }
+  )
 })
