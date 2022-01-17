@@ -1,7 +1,7 @@
 # Sujet: Calcul de prix
 
-Calculer le prix selon 3 données : nombre d’articles, prix unitaire, et taux de TVA.
-Une réduction est appliquée selon le montant total de la commande (voir tableau).
+Calculer le prix selon 3 données : nombre d’articles, prix unitaire, et taux de TVA. Une réduction est appliquée selon
+le montant total de la commande (voir tableau).
 
 | Valeur de la commande | Réduction |
 | --------------------- | :-------: |
@@ -21,6 +21,6 @@ Prix sans réduction:
 Prix avec réduction:
 
 - > 1000 € → Remise 3% :
-  - Ex : 5 x 345,00 € + taxe 10% → 1840.58 €
+    - Ex : 5 x 345,00 € + taxe 10% → 1840.58 €
 - > 5000 € → Remise 5% :
-  - Ex : 5 x 1299,00 € + taxe 10% → 6787.28 €
+    - Ex : 5 x 1299,00 € + taxe 10% → 6787.28 €
