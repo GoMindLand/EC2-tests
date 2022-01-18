@@ -27,6 +27,11 @@ describe("String calculator", () => {
       stringNumbers: "10,2",
       expectedResult: 12,
     },
+    {
+      caseMsg: "It should add three numbers",
+      stringNumbers: "10,2,1",
+      expectedResult: 13,
+    },
   ])("$caseMsg", async (args) => {
     const { stringNumbers, expectedResult } = args
     const result: number = stringCalculator.add(stringNumbers)
