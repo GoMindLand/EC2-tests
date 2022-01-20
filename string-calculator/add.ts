@@ -3,11 +3,12 @@ export const stringCalculator = {
     let result = 0
     const newLine = "\n"
     let delimiter = ","
+    const newDelimiter = "//"
     const lines = stringNumber.split(newLine)
 
     for (const line of lines) {
-      if (line.startsWith("//")) {
-        delimiter = line.substring(2)
+      if (line.startsWith(newDelimiter)) {
+        delimiter = line.substring(newDelimiter.length)
         continue
       }
       if (line.endsWith(delimiter)) throw new Error("Syntax error")
