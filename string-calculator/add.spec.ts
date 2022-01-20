@@ -38,14 +38,38 @@ describe("String calculator", () => {
       expectedResult: 16,
     },
     {
-      caseMsg: "It should add new line separator",
+      caseMsg: "It should add many numbers with new line separator",
       stringNumbers: "1,2\n3",
       expectedResult: 6,
     },
+    {
+      caseMsg: "It should add new many numbers with two new lines separator",
+      stringNumbers: "1,2\n3\n3",
+      expectedResult: 9,
+    },
+    {
+      caseMsg: "It should warn if i mistake the syntax",
+      stringNumbers: "1,2,\n3",
+      expectedError: true,
+    },
+    {
+      caseMsg: "It should handle different delimiter",
+      stringNumbers: "//;\n1;2",
+      expectedResult: 3,
+    },
   ])("$caseMsg", async (args) => {
-    const { stringNumbers, expectedResult } = args
-    const result: number = stringCalculator.add(stringNumbers)
-    expect(result).toBe(expectedResult)
+    //Arrange
+    const { stringNumbers, expectedResult, expectedError } = args
+
+    //Act
+    const result: number = expectedError
+      ? NaN
+      : stringCalculator.add(stringNumbers)
+
+    //Assert
+    if (expectedError)
+      expect(() => stringCalculator.add(stringNumbers)).toThrow()
+    else expect(result).toBe(expectedResult)
   })
 })
 export {}

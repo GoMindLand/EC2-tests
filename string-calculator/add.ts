@@ -1,15 +1,23 @@
 export const stringCalculator = {
   add: (stringNumber: string): number => {
     let result = 0
-    const lines = stringNumber.split("\n")
-    const values: string[] = lines[0].split(",")
+    const newLine = "\n"
+    let delimiter = ","
+    const lines = stringNumber.split(newLine)
 
-    for (const value of values) {
-      result += Number(value)
+    for (const line of lines) {
+      if (line.startsWith("//")) {
+        delimiter = line.substring(2)
+        continue
+      }
+      if (line.endsWith(delimiter)) throw new Error("Syntax error")
+
+      const values: string[] = line.split(delimiter)
+      for (const value of values) {
+        result += Number(value)
+      }
     }
-    if (lines[1]) {
-      result += stringCalculator.add(lines[1])
-    }
+
     return result
   },
 }
