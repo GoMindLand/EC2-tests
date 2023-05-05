@@ -10,7 +10,7 @@ le montant total de la commande (voir tableau).
 | > 10000€              |    7%     |
 | > 15000€              |    15%    |
 
-# Exemples
+## Exemples
 
 Prix sans réduction:
 
@@ -21,6 +21,6 @@ Prix sans réduction:
 Prix avec réduction:
 
 - > 1000 € → Remise 3% :
-    - Ex : 5 x 345,00 € + taxe 10% → 1840.58 €
+  - Ex : 5 x 345,00 € + taxe 10% → 1840.58 €
 - > 5000 € → Remise 5% :
-    - Ex : 5 x 1299,00 € + taxe 10% → 6787.28 €
+  - Ex : 5 x 1299,00 € + taxe 10% → 6787.28 €

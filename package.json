@@ -1,4 +1,7 @@
 {
+  "name": "test-techniques-ec2",
+  "version": "1.0.0",
+  "private": true,
   "dependencies": {
     "@types/jest": "^27.4.0",
     "jest": "^27.4.7",
