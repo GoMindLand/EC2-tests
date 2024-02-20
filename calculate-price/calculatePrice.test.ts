@@ -1,4 +1,4 @@
-import { Article, calculatePrice } from "./calculatePrice";
+import { calculatePrice } from "./calculatePrice";
 
 describe("Calculate price", () => {
   test.each([
